@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jerem Store | Offre Exclusive Nokia 3310</title>
+    <!-- Tailwind CSS pour un design e-commerce pro -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Canvas Confetti pour l'effet de fête -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Animation des poissons qui nagent partout */
+        .swimming-fish {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            font-size: 2.5rem;
+            user-select: none;
+            animation: swim linear infinite;
+        }
+
+        @keyframes swim {
+            0% {
+                transform: translate(0, 0) scaleX(1) rotate(0deg);
+            }
+            25% {
+                transform: translate(25vw, -30px) scaleX(1) rotate(10deg);
+            }
+            50% {
+                transform: translate(50vw, 20px) scaleX(1) rotate(-5deg);
+            }
+            75% {
+                transform: translate(75vw, -20px) scaleX(1) rotate(8deg);
+            }
+            100% {
+                transform: translate(105vw, 0px) scaleX(1) rotate(0deg);
+            }
+        }
+
+        /* Animation Pop-in de la modale */
+        @keyframes popIn {
+            0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
+            70% { transform: scale(1.05) rotate(2deg); opacity: 1; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .animate-pop-in {
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        .pulse-badge {
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- Top Banner Promos -->
+    <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center shadow-md">
+        ⚡ VENTE FLASH EXCLUSIVE JEREM STORE : <strong>-69% DE RÉDUCTION</strong> JUSQU'À ÉPUISEMENT DES STOCKS ! ⚡
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer">
+                    <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-lg shadow-indigo-200 flex items-center justify-center font-extrabold text-xl tracking-wider">
+                        JS
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">JEREM STORE</span>
+                        <span class="block text-[10px] text-slate-400 font-bold uppercase tracking-widest">Tech & High-Tech Premium</span>
+                    </div>
+                </div>
+
+                <!-- Navigation links (Desktop) -->
+                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
+                    <a href="#" class="text-indigo-600 font-semibold">Accueil</a>
+                    <a href="#" class="hover:text-indigo-600 transition">Promotions Hot 🔥</a>
+                    <a href="#" class="hover:text-indigo-600 transition">Smartphones</a>
+                    <a href="#" class="hover:text-indigo-600 transition">Légendes Vintage</a>
+                    <a href="#" class="hover:text-indigo-600 transition">Avis Clients</a>
+                </nav>
+
+                <!-- Icons right -->
+                <div class="flex items-center space-x-4">
+                    <button class="text-slate-600 hover:text-indigo-600 p-2 rounded-full hover:bg-slate-100 transition">
+                        <i class="fa-solid font-bold fa-magnifying-glass text-lg"></i>
+                    </button>
+                    <button class="relative text-slate-600 hover:text-indigo-600 p-2 rounded-full hover:bg-slate-100 transition">
+                        <i class="fa-solid fa-cart-shopping text-lg"></i>
+                        <span class="absolute top-1 right-1 bg-pink-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        
+        <!-- Breadcrumb -->
+        <nav class="flex text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center"><a href="#" class="hover:text-indigo-600">Accueil</a></li>
+                <li><i class="fa-solid fa-chevron-right text-xs text-slate-400 mx-1"></i></li>
+                <li><a href="#" class="hover:text-indigo-600">Téléphonie Indestructible</a></li>
+                <li><i class="fa-solid fa-chevron-right text-xs text-slate-400 mx-1"></i></li>
+                <li class="font-semibold text-slate-800">Nokia 3310 Édition Titane Ultra-Resistant</li>
+            </ol>
+        </nav>
+
+        <!-- Product Details Grid -->
+        <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0">
+            
+            <!-- Product Gallery (Left) -->
+            <div class="lg:col-span-6 bg-slate-50 p-6 md:p-10 flex flex-col justify-between items-center border-b lg:border-b-0 lg:border-r border-slate-100 relative">
+                <!-- Badge -69% promo -->
+                <div class="absolute top-6 left-6 bg-gradient-to-r from-red-500 to-pink-600 text-white font-extrabold text-lg px-4 py-2 rounded-2xl shadow-lg pulse-badge flex items-center gap-2">
+                    <i class="fa-solid fa-fire"></i> OFFRE SPECIALE -69%
+                </div>
+
+                <!-- Verified Indestructible Badge -->
+                <div class="absolute top-6 right-6 bg-white/80 backdrop-blur border border-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
+                    <i class="fa-solid fa-shield-halved text-emerald-500"></i> Garantie Incassable
+                </div>
+
+                <!-- Main Product SVG Illustration -->
+                <div class="w-full max-w-xs my-8 transition-transform duration-500 hover:scale-105">
+                    <svg viewBox="0 0 200 360" class="w-full h-auto drop-shadow-2xl filter">
+                        <!-- Shadow -->
+                        <ellipse cx="100" cy="345" rx="70" ry="10" fill="#cbd5e1"/>
+                        <!-- Body -->
+                        <rect x="35" y="20" width="130" height="310" rx="35" fill="url(#bodyGradient)" stroke="#1e293b" stroke-width="4"/>
+                        <!-- Screen Bezel -->
+                        <rect x="48" y="40" width="104" height="90" rx="12" fill="#0f172a"/>
+                        <!-- Screen -->
+                        <rect x="54" y="46" width="92" height="78" rx="6" fill="#84cc16"/>
+                        
+                        <!-- Screen Content (Game Snake / Text) -->
+                        <text x="100" y="70" font-family="monospace" font-size="10" font-weight="bold" fill="#1a2e05" text-anchor="middle">JEREM STORE</text>
+                        <text x="100" y="88" font-family="monospace" font-size="12" font-weight="extrabold" fill="#1a2e05" text-anchor="middle">NOKIA 3310</text>
+                        <text x="100" y="106" font-family="monospace" font-size="9" fill="#1a2e05" text-anchor="middle">Autonomie: 40 jours</text>
+                        
+                        <!-- Speaker lines -->
+                        <line x1="85" y1="30" x2="115" y2="30" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
+                        
+                        <!-- Main Buttons Grid -->
+                        <!-- Menu Button Top -->
+                        <rect x="75" y="145" width="50" height="22" rx="6" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+                        <rect x="48" y="145" width="22" height="22" rx="6" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+                        <rect x="130" y="145" width="22" height="22" rx="6" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+                        
+                        <!-- Keypad 1-9 & *0# -->
+                        <!-- Row 1 -->
+                        <rect x="50" y="180" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="64" y="194" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">1</text>
+                        
+                        <rect x="86" y="180" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="100" y="194" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">2</text>
+                        
+                        <rect x="122" y="180" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="136" y="194" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">3</text>
+                        
+                        <!-- Row 2 -->
+                        <rect x="50" y="210" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="64" y="224" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">4</text>
+                        
+                        <rect x="86" y="210" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="100" y="224" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">5</text>
+                        
+                        <rect x="122" y="210" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="136" y="224" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">6</text>
+                        
+                        <!-- Row 3 -->
+                        <rect x="50" y="240" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="64" y="254" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">7</text>
+                        
+                        <rect x="86" y="240" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="100" y="254" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">8</text>
+                        
+                        <rect x="122" y="240" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="136" y="254" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">9</text>
+                        
+                        <!-- Row 4 -->
+                        <rect x="50" y="270" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="64" y="284" font-family="sans-serif" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">*</text>
+                        
+                        <rect x="86" y="270" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="100" y="284" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">0</text>
+                        
+                        <rect x="122" y="270" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+                        <text x="136" y="284" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">#</text>
+                        
+                        <!-- Mic hole -->
+                        <circle cx="100" cy="305" r="2" fill="#334155"/>
+
+                        <defs>
+                            <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#2563eb" />
+                                <stop offset="50%" stop-color="#1d4ed8" />
+                                <stop offset="100%" stop-color="#1e40af" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+
+                <!-- Thumbnail preview -->
+                <div class="flex gap-3 mt-4">
+                    <div class="w-14 h-14 bg-white border-2 border-indigo-600 rounded-xl p-1 shadow-sm cursor-pointer flex items-center justify-center">
+                        <span class="text-xs font-bold text-indigo-600">Bleu Nuit</span>
+                    </div>
+                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl p-1 shadow-sm cursor-pointer opacity-60 hover:opacity-100 flex items-center justify-center">
+                        <span class="text-xs font-bold text-slate-500">Gris Acier</span>
+                    </div>
+                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl p-1 shadow-sm cursor-pointer opacity-60 hover:opacity-100 flex items-center justify-center">
+                        <span class="text-xs font-bold text-slate-500">Jaune Cyan</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Info & Buying Actions (Right) -->
+            <div class="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-between">
+                <div>
+                    <!-- Brand & Rating -->
+                    <div class="flex items-center justify-between gap-4 mb-2">
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                            Nokia Original
+                        </span>
+                        <div class="flex items-center text-amber-400 text-sm gap-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span class="text-slate-500 font-semibold text-xs ml-1">(4.9/5 - 4,892 avis)</span>
+                        </div>
+                    </div>
+
+                    <!-- Title -->
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
+                        Nokia 3310 Re-Edition <span class="text-indigo-600">Jerem Limitée</span>
+                    </h1>
+                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">
+                        Le téléphone légendaire capable de résister à une chute d'un immeuble de 10 étages. Équipé du jeu mythique <i>Snake II</i> et d'une batterie qui dure plus longtemps que votre dernier contrat téléphonique.
+                    </p>
+
+                    <!-- Pricing Section -->
+                    <div class="bg-gradient-to-r from-red-50 to-pink-50 p-5 rounded-2xl border border-red-100 mb-6">
+                        <div class="flex items-baseline gap-3">
+                            <!-- New price -->
+                            <span class="text-4xl font-extrabold text-red-600 tracking-tight">
+                                21,39 €
+                            </span>
+                            <!-- Old price -->
+                            <span class="text-xl font-bold text-slate-400 line-through">
+                                69,00 €
+                            </span>
+                            <!-- Discount Pill -->
+                            <span class="bg-red-600 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase tracking-wide">
+                                ECONOMISEZ 69%
+                            </span>
+                        </div>
+                        <div class="mt-2 text-xs font-semibold text-red-700 flex items-center gap-1.5">
+                            <i class="fa-solid fa-clock animate-pulse"></i> Offre réservée aux 10 premiers acheteurs aujourd'hui !
+                        </div>
+                    </div>
+
+                    <!-- Features bullets -->
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Batterie ultra-longue durée : <strong>960 heures en veille</strong></span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Coque anti-choc blindée en nano-polymère</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
+                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
+                                <i class="fa-solid fa-check"></i>
+                            </div>
+                            <span>Inclus : Snake II original préréglé en mode Turbo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action Buttons -->
+                <div class="space-y-4 pt-4 border-t border-slate-100">
+                    <button id="buyBtn" onclick="triggerPoissonDAvril()" 
+                        class="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold text-lg py-4 px-8 rounded-2xl shadow-xl shadow-indigo-200 transform hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 group">
+                        <i class="fa-solid fa-cart-arrow-down text-xl group-hover:scale-125 transition-transform">="</i>
+                        <span>COMMANDER MAINTENANT (-69%)</span>
+                    </button>
+                    
+                    <div class="flex items-center justify-center gap-6 text-xs text-slate-500 font-medium">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-slate-400"></i> Livraison 24h</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-slate-400"></i> Paiement 100% Sécurisé</span>
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-slate-400"></i> Retours Gratuits</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Fake Reviews Section -->
+        <section class="mt-16">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-comments text-indigo-600"></i> Avis des clients Jerem Store
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 font-medium">"J'ai fait tomber le téléphone du 4ème étage. Le trottoir s'est cassé, mais le téléphone n'a rien. Merci Jerem Store !"</p>
+                    <div class="font-bold text-xs text-slate-900">— Thomas B. <span class="text-emerald-500 font-normal">Achat vérifié</span></div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 font-medium">"Une réduction de -69% c'est imbattable. Je ne recharge mon Nokia qu'une fois par mois !"</p>
+                    <div class="font-bold text-xs text-slate-900">— Lucas M. <span class="text-emerald-500 font-normal">Achat vérifié</span></div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <div class="flex text-amber-400 text-xs mb-2">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-slate-600 text-sm mb-4 font-medium">"Jerem est vraiment le meilleur vendeur de tech. Envoi rapide et produit légendaire."</p>
+                    <div class="font-bold text-xs text-slate-900">— Sophie T. <span class="text-emerald-500 font-normal">Achat vérifié</span></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-10 mt-auto border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p class="font-bold text-white mb-2">JEREM STORE © 2026 - Le meilleur de la technologie indestructible</p>
+            <p class="text-slate-500 text-xs">Boutique officielle fictive pour rigoler entre amis. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- MODALE SURPRISE POISSON D'AVRIL -->
+    <div id="aprilFoolsModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-8 text-center shadow-2xl border-4 border-pink-500 relative animate-pop-in">
+            
+            <!-- Floating Fish Emojis Decorative Header -->
+            <div class="text-6xl mb-4 animate-bounce">
+                🐟 🐠 🎣
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 mb-2">
+                HAHA ! POISSON D'AVRIL ! 🐟
+            </h2>
+
+            <p class="text-xl font-bold text-indigo-600 mb-4">
+                Tu croyais vraiment avoir le Nokia à -69% sur le Jerem Store ?! 😂
+            </p>
+
+            <div class="bg-pink-50 border border-pink-200 rounded-2xl p-4 mb-6">
+                <p class="text-slate-700 font-medium text-sm">
+                    Pas de commande enregistrée, pas de Nokia expédié... Mais tu viens officiellement de te faire piéger par l'équipe <strong>Jerem Store</strong> ! 🎈🎉
+                </p>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex flex-col gap-3">
+                <button onclick="closeModal()" class="w-full bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition">
+                    Trop fort Jerem ! 🤣 (Fermer)
+                </button>
+                <button onclick="triggerFishStorm()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-6 rounded-xl transition text-sm">
+                    🌊 Relancer une vague de poissons !
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JavaScript pour les animations et le gag -->
+    <script>
+        let isPrankActive = false;
+
+        function triggerPoissonDAvril() {
+            // Afficher la modale
+            const modal = document.getElementById('aprilFoolsModal');
+            modal.classList.remove('hidden');
+
+            // Pluie de Confettis avec canvas-confetti
+            confetti({
+                particleCount: 120,
+                spread: 100,
+                origin: { y: 0.6 }
+            });
+
+            setTimeout(() => {
+                confetti({
+                    particleCount: 80,
+                    angle: 60,
+                    spread: 80,
+                    origin: { x: 0 }
+                });
+                confetti({
+                    particleCount: 80,
+                    angle: 120,
+                    spread: 80,
+                    origin: { x: 1 }
+                });
+            }, 300);
+
+            // Générer des poissons qui traversent l'écran
+            triggerFishStorm();
+        }
+
+        function triggerFishStorm() {
+            const fishTypes = ['🐟', '🐠', '🐡', '🦈', '🎣', '🦑'];
+            const totalFish = 30;
+
+            for (let i = 0; i < totalFish; i++) {
+                setTimeout(() => {
+                    createSwimmingFish(fishTypes[Math.floor(Math.random() * fishTypes.length)]);
+                }, i * 150);
+            }
+        }
+
+        function createSwimmingFish(emoji) {
+            const fish = document.createElement('div');
+            fish.className = 'swimming-fish';
+            fish.innerText = emoji;
+            
+            // Random Y Position
+            const startY = Math.random() * 80 + 10; // 10vh to 90vh
+            fish.style.top = `${startY}vh`;
+            fish.style.left = `-50px`;
+
+            // Random Duration & Scale
+            const duration = Math.random() * 3 + 2.5; // 2.5s to 5.5s
+            const scale = Math.random() * 0.8 + 0.8;
+            fish.style.animationDuration = `${duration}s`;
+            fish.style.fontSize = `${scale * 2.5}rem`;
+
+            document.body.appendChild(fish);
+
+            // Clean up after animation ends
+            setTimeout(() => {
+                fish.remove();
+            }, duration * 1000);
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('aprilFoolsModal');
+            modal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
