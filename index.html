@@ -3,105 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jerem Store | Offre Exclusive Nokia 3310</title>
-    <!-- Tailwind CSS pour un design e-commerce pro -->
+    <title>Jerem Store | Tech, Gadgets & Nokia 3310</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Canvas Confetti pour l'effet de fête -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
 
-        /* Animation des poissons qui nagent partout */
-        .swimming-fish {
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            font-size: 2.5rem;
-            user-select: none;
-            animation: swim linear infinite;
-        }
-
-        @keyframes swim {
-            0% {
-                transform: translate(0, 0) scaleX(1) rotate(0deg);
-            }
-            25% {
-                transform: translate(25vw, -30px) scaleX(1) rotate(10deg);
-            }
-            50% {
-                transform: translate(50vw, 20px) scaleX(1) rotate(-5deg);
-            }
-            75% {
-                transform: translate(75vw, -20px) scaleX(1) rotate(8deg);
-            }
-            100% {
-                transform: translate(105vw, 0px) scaleX(1) rotate(0deg);
-            }
-        }
-
-        /* Animation Pop-in de la modale */
         @keyframes popIn {
-            0% { transform: scale(0.5) rotate(-5deg); opacity: 0; }
-            70% { transform: scale(1.05) rotate(2deg); opacity: 1; }
-            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
-
-        .animate-pop-in {
-            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
+        .animate-pop-in { animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
         
-        .pulse-badge {
-            animation: pulse 1.5s infinite;
-        }
+        .pulse-badge { animation: pulse 1.5s infinite; }
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+            50% { transform: scale(1.06); }
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- Top Banner Promos -->
-    <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center shadow-md">
-        ⚡ VENTE FLASH EXCLUSIVE JEREM STORE : <strong>-69% DE RÉDUCTION</strong> JUSQU'À ÉPUISEMENT DES STOCKS ! ⚡
+    <!-- Banner Top -->
+    <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white text-xs sm:text-sm font-bold py-2.5 px-4 text-center shadow-md">
+        ⚡ OFFRE EXCLUSIVE JEREM STORE : <strong>-69% SUR LE NOKIA 3310</strong> + LIVRAISON GRATUITE POUR NOS AMIS ! ⚡
     </div>
 
-    <!-- Header / Navigation -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-40 shadow-sm">
+    <!-- Header Navigation -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
+            <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <div class="flex items-center space-x-3 cursor-pointer">
-                    <div class="bg-indigo-600 text-white p-2.5 rounded-xl shadow-lg shadow-indigo-200 flex items-center justify-center font-extrabold text-xl tracking-wider">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="filterProducts('all')">
+                    <div class="bg-gradient-to-tr from-indigo-600 to-purple-600 text-white p-2.5 rounded-2xl shadow-lg shadow-indigo-200 flex items-center justify-center font-black text-xl tracking-wider">
                         JS
                     </div>
                     <div>
-                        <span class="text-xl font-extrabold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">JEREM STORE</span>
-                        <span class="block text-[10px] text-slate-400 font-bold uppercase tracking-widest">Tech & High-Tech Premium</span>
+                        <span class="text-2xl font-black bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">JEREM STORE</span>
+                        <span class="block text-[10px] text-slate-400 font-extrabold uppercase tracking-widest">Le Shop Tech Indestructible</span>
                     </div>
                 </div>
 
-                <!-- Navigation links (Desktop) -->
-                <nav class="hidden md:flex space-x-8 font-medium text-sm text-slate-600">
-                    <a href="#" class="text-indigo-600 font-semibold">Accueil</a>
-                    <a href="#" class="hover:text-indigo-600 transition">Promotions Hot 🔥</a>
-                    <a href="#" class="hover:text-indigo-600 transition">Smartphones</a>
-                    <a href="#" class="hover:text-indigo-600 transition">Légendes Vintage</a>
-                    <a href="#" class="hover:text-indigo-600 transition">Avis Clients</a>
-                </nav>
+                <!-- Search bar -->
+                <div class="hidden md:flex flex-1 max-w-md mx-8 relative">
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Rechercher un produit, un gadget..." 
+                        class="w-full bg-slate-100 border border-slate-200 rounded-xl py-2.5 pl-10 pr-4 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-slate-400"></i>
+                </div>
 
-                <!-- Icons right -->
-                <div class="flex items-center space-x-4">
-                    <button class="text-slate-600 hover:text-indigo-600 p-2 rounded-full hover:bg-slate-100 transition">
-                        <i class="fa-solid font-bold fa-magnifying-glass text-lg"></i>
-                    </button>
-                    <button class="relative text-slate-600 hover:text-indigo-600 p-2 rounded-full hover:bg-slate-100 transition">
-                        <i class="fa-solid fa-cart-shopping text-lg"></i>
-                        <span class="absolute top-1 right-1 bg-pink-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">1</span>
+                <!-- Cart Button & Icons -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="toggleCartDrawer()" class="relative bg-indigo-50 hover:bg-indigo-100 text-indigo-600 font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-lg"></i>
+                        <span class="hidden sm:inline text-sm">Mon Panier</span>
+                        <span id="cartBadge" class="bg-red-500 text-white text-xs font-black w-5 h-5 rounded-full flex items-center justify-center shadow-md">0</span>
                     </button>
                 </div>
             </div>
@@ -109,368 +66,491 @@
     </header>
 
     <!-- Main Content -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        <!-- Breadcrumb -->
-        <nav class="flex text-sm text-slate-500 mb-6" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center"><a href="#" class="hover:text-indigo-600">Accueil</a></li>
-                <li><i class="fa-solid fa-chevron-right text-xs text-slate-400 mx-1"></i></li>
-                <li><a href="#" class="hover:text-indigo-600">Téléphonie Indestructible</a></li>
-                <li><i class="fa-solid fa-chevron-right text-xs text-slate-400 mx-1"></i></li>
-                <li class="font-semibold text-slate-800">Nokia 3310 Édition Titane Ultra-Resistant</li>
-            </ol>
-        </nav>
-
-        <!-- Product Details Grid -->
-        <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0">
-            
-            <!-- Product Gallery (Left) -->
-            <div class="lg:col-span-6 bg-slate-50 p-6 md:p-10 flex flex-col justify-between items-center border-b lg:border-b-0 lg:border-r border-slate-100 relative">
-                <!-- Badge -69% promo -->
-                <div class="absolute top-6 left-6 bg-gradient-to-r from-red-500 to-pink-600 text-white font-extrabold text-lg px-4 py-2 rounded-2xl shadow-lg pulse-badge flex items-center gap-2">
-                    <i class="fa-solid fa-fire"></i> OFFRE SPECIALE -69%
-                </div>
-
-                <!-- Verified Indestructible Badge -->
-                <div class="absolute top-6 right-6 bg-white/80 backdrop-blur border border-slate-200 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1.5">
-                    <i class="fa-solid fa-shield-halved text-emerald-500"></i> Garantie Incassable
-                </div>
-
-                <!-- Main Product SVG Illustration -->
-                <div class="w-full max-w-xs my-8 transition-transform duration-500 hover:scale-105">
-                    <svg viewBox="0 0 200 360" class="w-full h-auto drop-shadow-2xl filter">
-                        <!-- Shadow -->
-                        <ellipse cx="100" cy="345" rx="70" ry="10" fill="#cbd5e1"/>
-                        <!-- Body -->
-                        <rect x="35" y="20" width="130" height="310" rx="35" fill="url(#bodyGradient)" stroke="#1e293b" stroke-width="4"/>
-                        <!-- Screen Bezel -->
-                        <rect x="48" y="40" width="104" height="90" rx="12" fill="#0f172a"/>
-                        <!-- Screen -->
-                        <rect x="54" y="46" width="92" height="78" rx="6" fill="#84cc16"/>
-                        
-                        <!-- Screen Content (Game Snake / Text) -->
-                        <text x="100" y="70" font-family="monospace" font-size="10" font-weight="bold" fill="#1a2e05" text-anchor="middle">JEREM STORE</text>
-                        <text x="100" y="88" font-family="monospace" font-size="12" font-weight="extrabold" fill="#1a2e05" text-anchor="middle">NOKIA 3310</text>
-                        <text x="100" y="106" font-family="monospace" font-size="9" fill="#1a2e05" text-anchor="middle">Autonomie: 40 jours</text>
-                        
-                        <!-- Speaker lines -->
-                        <line x1="85" y1="30" x2="115" y2="30" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
-                        
-                        <!-- Main Buttons Grid -->
-                        <!-- Menu Button Top -->
-                        <rect x="75" y="145" width="50" height="22" rx="6" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
-                        <rect x="48" y="145" width="22" height="22" rx="6" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
-                        <rect x="130" y="145" width="22" height="22" rx="6" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
-                        
-                        <!-- Keypad 1-9 & *0# -->
-                        <!-- Row 1 -->
-                        <rect x="50" y="180" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="64" y="194" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">1</text>
-                        
-                        <rect x="86" y="180" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="100" y="194" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">2</text>
-                        
-                        <rect x="122" y="180" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="136" y="194" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">3</text>
-                        
-                        <!-- Row 2 -->
-                        <rect x="50" y="210" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="64" y="224" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">4</text>
-                        
-                        <rect x="86" y="210" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="100" y="224" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">5</text>
-                        
-                        <rect x="122" y="210" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="136" y="224" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">6</text>
-                        
-                        <!-- Row 3 -->
-                        <rect x="50" y="240" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="64" y="254" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">7</text>
-                        
-                        <rect x="86" y="240" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="100" y="254" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">8</text>
-                        
-                        <rect x="122" y="240" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="136" y="254" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">9</text>
-                        
-                        <!-- Row 4 -->
-                        <rect x="50" y="270" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="64" y="284" font-family="sans-serif" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">*</text>
-                        
-                        <rect x="86" y="270" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="100" y="284" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">0</text>
-                        
-                        <rect x="122" y="270" width="28" height="20" rx="5" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
-                        <text x="136" y="284" font-family="sans-serif" font-size="10" font-weight="bold" fill="#334155" text-anchor="middle">#</text>
-                        
-                        <!-- Mic hole -->
-                        <circle cx="100" cy="305" r="2" fill="#334155"/>
-
-                        <defs>
-                            <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#2563eb" />
-                                <stop offset="50%" stop-color="#1d4ed8" />
-                                <stop offset="100%" stop-color="#1e40af" />
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                </div>
-
-                <!-- Thumbnail preview -->
-                <div class="flex gap-3 mt-4">
-                    <div class="w-14 h-14 bg-white border-2 border-indigo-600 rounded-xl p-1 shadow-sm cursor-pointer flex items-center justify-center">
-                        <span class="text-xs font-bold text-indigo-600">Bleu Nuit</span>
-                    </div>
-                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl p-1 shadow-sm cursor-pointer opacity-60 hover:opacity-100 flex items-center justify-center">
-                        <span class="text-xs font-bold text-slate-500">Gris Acier</span>
-                    </div>
-                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl p-1 shadow-sm cursor-pointer opacity-60 hover:opacity-100 flex items-center justify-center">
-                        <span class="text-xs font-bold text-slate-500">Jaune Cyan</span>
-                    </div>
-                </div>
+        <!-- PRODUIT VEDETTE (NOKIA 3310 -69%) -->
+        <section class="mb-14">
+            <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-black tracking-widest text-indigo-600 uppercase bg-indigo-100 px-3 py-1 rounded-full">🔥 Offre Vedette de la Semaine</span>
             </div>
 
-            <!-- Product Info & Buying Actions (Right) -->
-            <div class="lg:col-span-6 p-6 sm:p-10 flex flex-col justify-between">
-                <div>
-                    <!-- Brand & Rating -->
-                    <div class="flex items-center justify-between gap-4 mb-2">
-                        <span class="text-xs font-extrabold uppercase tracking-widest text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-                            Nokia Original
-                        </span>
-                        <div class="flex items-center text-amber-400 text-sm gap-1">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <span class="text-slate-500 font-semibold text-xs ml-1">(4.9/5 - 4,892 avis)</span>
-                        </div>
+            <div class="bg-white rounded-3xl shadow-xl border border-slate-200 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0">
+                <!-- Visual -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-indigo-950 p-8 flex flex-col items-center justify-center relative min-h-[320px]">
+                    <div class="absolute top-4 left-4 bg-gradient-to-r from-red-500 to-pink-600 text-white font-extrabold text-sm px-3.5 py-1.5 rounded-xl shadow-lg pulse-badge">
+                        -69% PROMO
                     </div>
 
-                    <!-- Title -->
-                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-3">
-                        Nokia 3310 Re-Edition <span class="text-indigo-600">Jerem Limitée</span>
-                    </h1>
-                    <p class="text-slate-500 text-sm mb-6 leading-relaxed">
-                        Le téléphone légendaire capable de résister à une chute d'un immeuble de 10 étages. Équipé du jeu mythique <i>Snake II</i> et d'une batterie qui dure plus longtemps que votre dernier contrat téléphonique.
-                    </p>
-
-                    <!-- Pricing Section -->
-                    <div class="bg-gradient-to-r from-red-50 to-pink-50 p-5 rounded-2xl border border-red-100 mb-6">
-                        <div class="flex items-baseline gap-3">
-                            <!-- New price -->
-                            <span class="text-4xl font-extrabold text-red-600 tracking-tight">
-                                21,39 €
-                            </span>
-                            <!-- Old price -->
-                            <span class="text-xl font-bold text-slate-400 line-through">
-                                69,00 €
-                            </span>
-                            <!-- Discount Pill -->
-                            <span class="bg-red-600 text-white font-extrabold text-xs px-2.5 py-1 rounded-lg uppercase tracking-wide">
-                                ECONOMISEZ 69%
-                            </span>
-                        </div>
-                        <div class="mt-2 text-xs font-semibold text-red-700 flex items-center gap-1.5">
-                            <i class="fa-solid fa-clock animate-pulse"></i> Offre réservée aux 10 premiers acheteurs aujourd'hui !
-                        </div>
-                    </div>
-
-                    <!-- Features bullets -->
-                    <div class="space-y-3 mb-8">
-                        <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
-                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <span>Batterie ultra-longue durée : <strong>960 heures en veille</strong></span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
-                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <span>Coque anti-choc blindée en nano-polymère</span>
-                        </div>
-                        <div class="flex items-center gap-3 text-sm font-medium text-slate-700">
-                            <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-check"></i>
-                            </div>
-                            <span>Inclus : Snake II original préréglé en mode Turbo</span>
-                        </div>
+                    <!-- Nokia SVG -->
+                    <div class="w-44 hover:scale-105 transition-transform duration-300 drop-shadow-2xl">
+                        <svg viewBox="0 0 200 360" class="w-full h-auto">
+                            <ellipse cx="100" cy="345" rx="70" ry="10" fill="#000" opacity="0.3"/>
+                            <rect x="35" y="20" width="130" height="310" rx="35" fill="url(#nokiaGrad)" stroke="#334155" stroke-width="4"/>
+                            <rect x="48" y="40" width="104" height="90" rx="12" fill="#0f172a"/>
+                            <rect x="54" y="46" width="92" height="78" rx="6" fill="#84cc16"/>
+                            <text x="100" y="72" font-family="monospace" font-size="10" font-weight="bold" fill="#1a2e05" text-anchor="middle">JEREM STORE</text>
+                            <text x="100" y="90" font-family="monospace" font-size="13" font-weight="extrabold" fill="#1a2e05" text-anchor="middle">NOKIA 3310</text>
+                            <text x="100" y="108" font-family="monospace" font-size="8" fill="#1a2e05" text-anchor="middle">SNAKE II INCLUS</text>
+                            <line x1="85" y1="30" x2="115" y2="30" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+                            <rect x="75" y="145" width="50" height="22" rx="6" fill="#cbd5e1"/>
+                            <rect x="48" y="145" width="22" height="22" rx="6" fill="#94a3b8"/>
+                            <rect x="130" y="145" width="22" height="22" rx="6" fill="#94a3b8"/>
+                            <!-- Keyboard grid -->
+                            <g fill="#e2e8f0" font-size="10" font-weight="bold" font-family="sans-serif">
+                                <rect x="50" y="180" width="28" height="20" rx="4"/><text x="64" y="194" fill="#1e293b" text-anchor="middle">1</text>
+                                <rect x="86" y="180" width="28" height="20" rx="4"/><text x="100" y="194" fill="#1e293b" text-anchor="middle">2</text>
+                                <rect x="122" y="180" width="28" height="20" rx="4"/><text x="136" y="194" fill="#1e293b" text-anchor="middle">3</text>
+                                <rect x="50" y="210" width="28" height="20" rx="4"/><text x="64" y="224" fill="#1e293b" text-anchor="middle">4</text>
+                                <rect x="86" y="210" width="28" height="20" rx="4"/><text x="100" y="224" fill="#1e293b" text-anchor="middle">5</text>
+                                <rect x="122" y="210" width="28" height="20" rx="4"/><text x="136" y="224" fill="#1e293b" text-anchor="middle">6</text>
+                                <rect x="50" y="240" width="28" height="20" rx="4"/><text x="64" y="254" fill="#1e293b" text-anchor="middle">7</text>
+                                <rect x="86" y="240" width="28" height="20" rx="4"/><text x="100" y="254" fill="#1e293b" text-anchor="middle">8</text>
+                                <rect x="122" y="240" width="28" height="20" rx="4"/><text x="136" y="254" fill="#1e293b" text-anchor="middle">9</text>
+                                <rect x="50" y="270" width="28" height="20" rx="4"/><text x="64" y="284" fill="#1e293b" text-anchor="middle">*</text>
+                                <rect x="86" y="270" width="28" height="20" rx="4"/><text x="100" y="284" fill="#1e293b" text-anchor="middle">0</text>
+                                <rect x="122" y="270" width="28" height="20" rx="4"/><text x="136" y="284" fill="#1e293b" text-anchor="middle">#</text>
+                            </g>
+                            <defs>
+                                <linearGradient id="nokiaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#2563eb" />
+                                    <stop offset="100%" stop-color="#1d4ed8" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
                     </div>
                 </div>
 
-                <!-- Call to Action Buttons -->
-                <div class="space-y-4 pt-4 border-t border-slate-100">
-                    <button id="buyBtn" onclick="triggerPoissonDAvril()" 
-                        class="w-full bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold text-lg py-4 px-8 rounded-2xl shadow-xl shadow-indigo-200 transform hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 group">
-                        <i class="fa-solid fa-cart-arrow-down text-xl group-hover:scale-125 transition-transform">="</i>
-                        <span>COMMANDER MAINTENANT (-69%)</span>
+                <!-- Info -->
+                <div class="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-lg">En Stock • Incassable</span>
+                            <div class="text-amber-400 text-xs flex items-center gap-1 font-bold ml-auto">
+                                <i class="fa-solid fa-star"></i> 5.0 <span class="text-slate-400 font-normal">(1,482 avis)</span>
+                            </div>
+                        </div>
+                        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
+                            Nokia 3310 Edition "Jerem Legend"
+                        </h1>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">
+                            Le seul smartphone qui résiste aux météores, au béton armé et aux fins de mois difficiles. Autonomie estimée à 40 jours en jeu intensif sur Snake II.
+                        </p>
+
+                        <!-- Price box -->
+                        <div class="bg-red-50 border border-red-100 rounded-2xl p-4 mb-6 flex items-center justify-between">
+                            <div>
+                                <span class="text-xs font-extrabold text-red-500 uppercase tracking-wide block">Prix Amis (-69%)</span>
+                                <div class="flex items-baseline gap-3">
+                                    <span class="text-3xl font-black text-red-600">21,39 €</span>
+                                    <span class="text-lg font-bold text-slate-400 line-through">69,00 €</span>
+                                </div>
+                            </div>
+                            <span class="bg-red-600 text-white font-black text-xs px-3 py-1.5 rounded-xl">Économie 47,61 €</span>
+                        </div>
+                    </div>
+
+                    <!-- Action -->
+                    <button onclick="addNokiaToCart()" class="w-full bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white font-extrabold text-base sm:text-lg py-4 px-6 rounded-2xl shadow-xl shadow-indigo-200 transition flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-cart-plus text-xl"></i>
+                        <span>AJOUTER AU PANIER (-69%)</span>
                     </button>
-                    
-                    <div class="flex items-center justify-center gap-6 text-xs text-slate-500 font-medium">
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-slate-400"></i> Livraison 24h</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-lock text-slate-400"></i> Paiement 100% Sécurisé</span>
-                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-rotate-left text-slate-400"></i> Retours Gratuits</span>
-                    </div>
                 </div>
-
             </div>
-        </div>
+        </section>
 
-        <!-- Fake Reviews Section -->
-        <section class="mt-16">
-            <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-comments text-indigo-600"></i> Avis des clients Jerem Store
-            </h2>
+        <!-- CATALOGUE PRODUITS -->
+        <section id="catalogue">
+            <!-- Header section & Filters -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-slate-900">Tous les Produits Jerem Store</h2>
+                    <p class="text-slate-500 text-sm font-medium">Equipements, gadgets et accessoires validés par Jerem</p>
+                </div>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="filterContainer">
+                    <button onclick="filterProducts('all')" class="filter-btn active bg-indigo-600 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition">Tous</button>
+                    <button onclick="filterProducts('smartphone')" class="filter-btn bg-white hover:bg-slate-100 text-slate-600 font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition">Smartphones</button>
+                    <button onclick="filterProducts('accessoire')" class="filter-btn bg-white hover:bg-slate-100 text-slate-600 font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition">Accessoires</button>
+                    <button onclick="filterProducts('gadget')" class="filter-btn bg-white hover:bg-slate-100 text-slate-600 font-bold text-xs px-4 py-2.5 rounded-xl border border-slate-200 transition">Gadgets</button>
+                </div>
+            </div>
+
+            <!-- Grid Container -->
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Products dynamically inserted via JS -->
+            </div>
+        </section>
+
+        <!-- REVIEWS SECTION -->
+        <section class="mt-20 border-t border-slate-200 pt-12">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 text-center">Ce que nos amis disent du Jerem Store</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Review 1 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <div class="flex text-amber-400 text-xs mb-2">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="flex text-amber-400 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4 font-medium">"J'ai fait tomber le téléphone du 4ème étage. Le trottoir s'est cassé, mais le téléphone n'a rien. Merci Jerem Store !"</p>
-                    <div class="font-bold text-xs text-slate-900">— Thomas B. <span class="text-emerald-500 font-normal">Achat vérifié</span></div>
+                    <p class="text-slate-600 text-sm font-medium mb-4">"Nokia reçu en 24h ! Mon marteau s'est cassé dessus. 10/10 Jerem !"</p>
+                    <span class="text-xs font-bold text-slate-900">— Lucas B.</span>
                 </div>
-                <!-- Review 2 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <div class="flex text-amber-400 text-xs mb-2">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="flex text-amber-400 text-xs mb-3">
                         <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4 font-medium">"Une réduction de -69% c'est imbattable. Je ne recharge mon Nokia qu'une fois par mois !"</p>
-                    <div class="font-bold text-xs text-slate-900">— Lucas M. <span class="text-emerald-500 font-normal">Achat vérifié</span></div>
+                    <p class="text-slate-600 text-sm font-medium mb-4">"Les écouteurs Jerem Store ont un son incroyable. Merci l'ami !"</p>
+                    <span class="text-xs font-bold text-slate-900">— Mathilde P.</span>
                 </div>
-                <!-- Review 3 -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <div class="flex text-amber-400 text-xs mb-2">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="flex text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star text-slate-300"></i>
                     </div>
-                    <p class="text-slate-600 text-sm mb-4 font-medium">"Jerem est vraiment le meilleur vendeur de tech. Envoi rapide et produit légendaire."</p>
-                    <div class="font-bold text-xs text-slate-900">— Sophie T. <span class="text-emerald-500 font-normal">Achat vérifié</span></div>
+                    <p class="text-slate-600 text-sm font-medium mb-4">"Super prix, livraison rapide pour les vrais potes."</p>
+                    <span class="text-xs font-bold text-slate-900">— Antoine M.</span>
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-10 mt-auto border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            <p class="font-bold text-white mb-2">JEREM STORE © 2026 - Le meilleur de la technologie indestructible</p>
-            <p class="text-slate-500 text-xs">Boutique officielle fictive pour rigoler entre amis. Tous droits réservés.</p>
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-20 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <span class="text-xl font-black text-white">JEREM STORE</span>
+                <p class="text-xs mt-3 leading-relaxed text-slate-400">Le shop de confiance pour trouver la meilleure tech indestructible et les gadgets des vrais amis.</p>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Navigation</h4>
+                <ul class="text-xs space-y-2">
+                    <li><a href="#catalogue" class="hover:text-white transition">Nokia 3310 Promo</a></li>
+                    <li><a href="#catalogue" class="hover:text-white transition">Accessoires Tech</a></li>
+                    <li><a href="#catalogue" class="hover:text-white transition">Gadgets Amis</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Garanties</h4>
+                <ul class="text-xs space-y-2">
+                    <li>Livraison Rapide Offerte</li>
+                    <li>Garantie Amical 100%</li>
+                    <li>Support 7j/7 par Jerem</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-sm font-bold text-white mb-3">Club des Amis</h4>
+                <p class="text-xs mb-3">Rejoins le club pour les promos secrètes à -69%.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Ton email..." class="bg-slate-800 border border-slate-700 text-xs px-3 py-2 rounded-l-lg text-white focus:outline-none w-full">
+                    <button class="bg-indigo-600 text-white font-bold text-xs px-3 py-2 rounded-r-lg">OK</button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-slate-600 mt-12 border-t border-slate-800/60 pt-6">
+            © 2026 Jerem Store • Fait avec ❤️ pour les potes.
         </div>
     </footer>
 
-    <!-- MODALE SURPRISE POISSON D'AVRIL -->
-    <div id="aprilFoolsModal" class="fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-white rounded-3xl max-w-lg w-full p-8 text-center shadow-2xl border-4 border-pink-500 relative animate-pop-in">
-            
-            <!-- Floating Fish Emojis Decorative Header -->
-            <div class="text-6xl mb-4 animate-bounce">
-                🐟 🐠 🎣
+    <!-- MODALE "TU ES NOTRE AMI !" -->
+    <div id="friendModal" class="fixed inset-0 bg-slate-900/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-2xl border border-indigo-100 relative animate-pop-in">
+            <div class="w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-inner">
+                ❤️
             </div>
-
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 mb-2">
-                HAHA ! POISSON D'AVRIL ! 🐟
-            </h2>
-
-            <p class="text-xl font-bold text-indigo-600 mb-4">
-                Tu croyais vraiment avoir le Nokia à -69% sur le Jerem Store ?! 😂
+            
+            <h3 class="text-3xl font-black text-slate-900 mb-2">
+                Tu est notre ami !
+            </h3>
+            
+            <p class="text-slate-600 text-sm font-medium mb-6 leading-relaxed">
+                Le Nokia 3310 a bien été ajouté à ton panier avec la réduction spéciale de <strong>-69%</strong> réservée au cercle des proches.
             </p>
 
-            <div class="bg-pink-50 border border-pink-200 rounded-2xl p-4 mb-6">
-                <p class="text-slate-700 font-medium text-sm">
-                    Pas de commande enregistrée, pas de Nokia expédié... Mais tu viens officiellement de te faire piéger par l'équipe <strong>Jerem Store</strong> ! 🎈🎉
-                </p>
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-6 text-xs text-slate-500 italic">
+                "Chez Jerem Store, les vrais amis ont toujours les meilleurs prix."
             </div>
 
-            <!-- Action buttons -->
-            <div class="flex flex-col gap-3">
-                <button onclick="closeModal()" class="w-full bg-gradient-to-r from-pink-500 to-rose-600 hover:from-pink-600 hover:to-rose-700 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition">
-                    Trop fort Jerem ! 🤣 (Fermer)
-                </button>
-                <button onclick="triggerFishStorm()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2.5 px-6 rounded-xl transition text-sm">
-                    🌊 Relancer une vague de poissons !
-                </button>
+            <button onclick="closeFriendModal()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 px-6 rounded-xl shadow-lg transition">
+                Merci Jerem ! 😊
+            </button>
+        </div>
+    </div>
+
+    <!-- PANIER LATÉRAL (DRAWER) -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-slate-900/50 backdrop-blur-xs transition-opacity" onclick="toggleCartDrawer()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+                <!-- Header Drawer -->
+                <div class="p-6 bg-slate-900 text-white flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-basket-shopping text-indigo-400"></i>
+                        <h3 class="font-bold text-lg">Mon Panier Amis</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white transition">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Dynamic Cart Items -->
+                </div>
+
+                <!-- Footer Drawer -->
+                <div class="p-6 border-t border-slate-200 bg-slate-50 space-y-4">
+                    <div class="flex items-center justify-between text-base font-extrabold text-slate-900">
+                        <span>Total :</span>
+                        <span id="cartTotal">0,00 €</span>
+                    </div>
+                    <button onclick="checkout()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check"></i>
+                        <span>Commander (Accès Ami)</span>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Script JavaScript pour les animations et le gag -->
+    <!-- JAVASCRIPT LOGIC -->
     <script>
-        let isPrankActive = false;
+        // Database des produits
+        const products = [
+            {
+                id: 'nokia3310',
+                title: 'Nokia 3310 Edition Jerem',
+                category: 'smartphone',
+                price: 21.39,
+                oldPrice: 69.00,
+                rating: 5.0,
+                desc: 'Autonomie 40 jours, incassable, Snake II préinstallé.',
+                badge: '-69%',
+                icon: '📱'
+            },
+            {
+                id: 'ecouteurs',
+                title: 'Écouteurs Sans Fil Jerem Sound',
+                category: 'accessoire',
+                price: 29.99,
+                oldPrice: 49.99,
+                rating: 4.8,
+                desc: 'Réduction de bruit active et basses profondes.',
+                badge: 'Top Ventes',
+                icon: '🎧'
+            },
+            {
+                id: 'chargeur-solaire',
+                title: 'Powerbank Solaire Incassable',
+                category: 'gadget',
+                price: 34.50,
+                oldPrice: 50.00,
+                rating: 4.9,
+                desc: 'Recharge n’importe quel appareil grâce au soleil.',
+                badge: 'Baroudeur',
+                icon: '☀️'
+            },
+            {
+                id: 'coque-blindee',
+                title: 'Coque Renforcée Titanium',
+                category: 'accessoire',
+                price: 14.99,
+                oldPrice: 25.00,
+                rating: 4.7,
+                desc: 'Protection militaire contre les chutes de 5 mètres.',
+                badge: 'Solide',
+                icon: '🛡️'
+            },
+            {
+                id: 'verre-diamant',
+                title: 'Verre Trempé Dureté 9H',
+                category: 'accessoire',
+                price: 9.99,
+                oldPrice: 15.00,
+                rating: 4.6,
+                desc: 'Anti-rayures et anti-traces de doigts.',
+                badge: 'Clarté',
+                icon: '💎'
+            },
+            {
+                id: 'gadget-antistress',
+                title: 'Bouton Anti-Stress Jerem',
+                category: 'gadget',
+                price: 7.99,
+                oldPrice: 12.00,
+                rating: 4.9,
+                desc: 'Appuie dessus pour entendre un mot gentil de Jerem.',
+                badge: 'Fun',
+                icon: '🔴'
+            }
+        ];
 
-        function triggerPoissonDAvril() {
-            // Afficher la modale
-            const modal = document.getElementById('aprilFoolsModal');
-            modal.classList.remove('hidden');
+        let cart = [];
 
-            // Pluie de Confettis avec canvas-confetti
-            confetti({
-                particleCount: 120,
-                spread: 100,
-                origin: { y: 0.6 }
+        // Rendu des produits
+        function renderProducts(itemsToRender) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            itemsToRender.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between";
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="bg-slate-100 rounded-xl h-40 flex items-center justify-center text-5xl mb-4 relative">
+                            ${p.badge ? `<span class="absolute top-2 left-2 bg-indigo-600 text-white font-extrabold text-[10px] px-2 py-1 rounded-md uppercase">${p.badge}</span>` : ''}
+                            ${p.icon}
+                        </div>
+                        <div class="flex items-center justify-between text-xs text-amber-500 font-bold mb-1">
+                            <span><i class="fa-solid fa-star"></i> ${p.rating}</span>
+                            <span class="text-slate-400 capitalize">${p.category}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-900 text-base mb-1">${p.title}</h3>
+                        <p class="text-slate-500 text-xs mb-4">${p.desc}</p>
+                    </div>
+                    <div>
+                        <div class="flex items-baseline gap-2 mb-3">
+                            <span class="text-xl font-extrabold text-slate-900">${p.price.toFixed(2)} €</span>
+                            ${p.oldPrice ? `<span class="text-xs text-slate-400 line-through font-medium">${p.oldPrice.toFixed(2)} €</span>` : ''}
+                        </div>
+                        <button onclick="addToCart('${p.id}')" class="w-full bg-slate-900 hover:bg-indigo-600 text-white font-bold text-xs py-2.5 rounded-xl transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-plus"></i> Ajouter au panier
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
             });
-
-            setTimeout(() => {
-                confetti({
-                    particleCount: 80,
-                    angle: 60,
-                    spread: 80,
-                    origin: { x: 0 }
-                });
-                confetti({
-                    particleCount: 80,
-                    angle: 120,
-                    spread: 80,
-                    origin: { x: 1 }
-                });
-            }, 300);
-
-            // Générer des poissons qui traversent l'écran
-            triggerFishStorm();
         }
 
-        function triggerFishStorm() {
-            const fishTypes = ['🐟', '🐠', '🐡', '🦈', '🎣', '🦑'];
-            const totalFish = 30;
+        // Ajouter Nokia avec modale "Tu es notre ami !"
+        function addNokiaToCart() {
+            addToCart('nokia3310', false);
+            document.getElementById('friendModal').classList.remove('hidden');
+        }
 
-            for (let i = 0; i < totalFish; i++) {
-                setTimeout(() => {
-                    createSwimmingFish(fishTypes[Math.floor(Math.random() * fishTypes.length)]);
-                }, i * 150);
+        function closeFriendModal() {
+            document.getElementById('friendModal').classList.add('hidden');
+        }
+
+        // Ajouter au panier standard
+        function addToCart(productId, showNotification = true) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const existing = cart.find(item => item.id === productId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...product, quantity: 1 });
+            }
+
+            updateCartUI();
+
+            if (showNotification) {
+                toggleCartDrawer(true);
             }
         }
 
-        function createSwimmingFish(emoji) {
-            const fish = document.createElement('div');
-            fish.className = 'swimming-fish';
-            fish.innerText = emoji;
-            
-            // Random Y Position
-            const startY = Math.random() * 80 + 10; // 10vh to 90vh
-            fish.style.top = `${startY}vh`;
-            fish.style.left = `-50px`;
+        // Changement de quantité
+        function updateQuantity(productId, change) {
+            const item = cart.find(i => i.id === productId);
+            if (!item) return;
 
-            // Random Duration & Scale
-            const duration = Math.random() * 3 + 2.5; // 2.5s to 5.5s
-            const scale = Math.random() * 0.8 + 0.8;
-            fish.style.animationDuration = `${duration}s`;
-            fish.style.fontSize = `${scale * 2.5}rem`;
-
-            document.body.appendChild(fish);
-
-            // Clean up after animation ends
-            setTimeout(() => {
-                fish.remove();
-            }, duration * 1000);
+            item.quantity += change;
+            if (item.quantity <= 0) {
+                cart = cart.filter(i => i.id !== productId);
+            }
+            updateCartUI();
         }
 
-        function closeModal() {
-            const modal = document.getElementById('aprilFoolsModal');
-            modal.classList.add('hidden');
+        // Mettre à jour le UI du panier
+        function updateCartUI() {
+            const badge = document.getElementById('cartBadge');
+            const totalCount = cart.reduce((sum, i) => sum + i.quantity, 0);
+            badge.innerText = totalCount;
+
+            const container = document.getElementById('cartItemsContainer');
+            const totalEl = document.getElementById('cartTotal');
+            container.innerHTML = '';
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-slate-400">
+                        <i class="fa-solid fa-basket-shopping text-4xl mb-3"></i>
+                        <p class="text-sm font-medium">Ton panier est vide l'ami !</p>
+                    </div>
+                `;
+                totalEl.innerText = '0,00 €';
+                return;
+            }
+
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                const div = document.createElement('div');
+                div.className = "flex items-center gap-3 bg-white p-3 rounded-xl border border-slate-200 shadow-sm";
+                div.innerHTML = `
+                    <div class="text-2xl">${item.icon}</div>
+                    <div class="flex-1 min-w-0">
+                        <h4 class="font-bold text-xs text-slate-900 truncate">${item.title}</h4>
+                        <span class="text-xs text-slate-500 font-semibold">${item.price.toFixed(2)} €</span>
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-100 rounded-lg p-1">
+                        <button onclick="updateQuantity('${item.id}', -1)" class="w-5 h-5 bg-white text-slate-700 text-xs font-bold rounded flex items-center justify-center">-</button>
+                        <span class="text-xs font-bold w-4 text-center">${item.quantity}</span>
+                        <button onclick="updateQuantity('${item.id}', 1)" class="w-5 h-5 bg-white text-slate-700 text-xs font-bold rounded flex items-center justify-center">+</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+
+            totalEl.innerText = `${total.toFixed(2)} €`;
         }
+
+        // Toggle Drawer
+        function toggleCartDrawer(openOnly = false) {
+            const drawer = document.getElementById('cartDrawer');
+            if (openOnly) {
+                drawer.classList.remove('hidden');
+            } else {
+                drawer.classList.toggle('hidden');
+            }
+        }
+
+        // Filtres
+        function filterProducts(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-indigo-600', 'text-white');
+                btn.classList.add('bg-white', 'text-slate-600');
+            });
+            event.currentTarget?.classList?.add('bg-indigo-600', 'text-white');
+
+            if (category === 'all') {
+                renderProducts(products);
+            } else {
+                renderProducts(products.filter(p => p.category === category));
+            }
+        }
+
+        // Search Bar
+        function handleSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.title.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        // Checkout
+        function checkout() {
+            if (cart.length === 0) return;
+            alert("Merci pour ta commande l'ami ! Jerem prépare ton colis personnellement.");
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        // Initialisation
+        window.onload = function() {
+            renderProducts(products);
+        };
     </script>
 </body>
 </html>
